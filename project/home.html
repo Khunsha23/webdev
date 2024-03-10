@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Off-Canvas Navbar</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Cinzel:wght@400..900&family=Homemade+Apple&family=La+Belle+Aurore&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lobster&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="outer-container">
+<nav class="navbar navbar-expand-lg custom-navbar">
+  <div class="container">
+     <a class="navbar-brand me-auto" href="#"><img src="images/logo.png" alt="Logo"></a>
+     <!-- Off-canvas toggle button -->
+     <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+      <span class="navbar-toggler-icon"></span>
+     </button>
+     <!-- Off-canvas menu -->
+     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+       
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav ms-auto"> <!-- Use ms-auto to push the items to the right -->
+          <li class="nav-item">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Menu</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Sign In</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link icon" href="#">Cart</a>
+          </li>
+        </ul>
+      </div>
+     </div>
+  </div>
+ </nav>
+</div>
+<div id="carousel-container">
+  <h2 id="FRESHLY">FRESHLY</h2>
+  <h2 id="BAKED"> BAKED</h2>
+  <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="images/donuts.png" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="images/cookies.png" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="images/brownie.webp" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    
+  </div>
+  
+</div>
+
+<div>  <div class="menu">
+  <div id="space"></div>
+  <h1 class="typewriter">Fresh From the Oven </h1>
+    <div class="container text-center grid-container">
+      <div class="row">
+          <div class="col-12 col-md-4">
+              <div class="reveal">
+                  <img class="column-img" src="images/0433afb27fdc62d6c70b1c6dccae8da0.jpg" alt="">
+                  <h3>COLUMN</h3>
+              </div>
+          </div>
+          <div class="col-12 col-md-4">
+              <div class="reveal">
+                  <img class="column-img" src="images/0433afb27fdc62d6c70b1c6dccae8da0.jpg" alt="">
+                  <h3>COLUMN</h3>
+              </div>
+          </div>
+          <div class="col-12 col-md-4">
+              <div class="reveal">
+                  <img class="column-img" src="images/0433afb27fdc62d6c70b1c6dccae8da0.jpg" alt="">
+                  <h3>COLUMN</h3>
+              </div>
+          </div>
+      </div>
+      <div id="div-menu-btn">
+          <button id="menu-btn">
+              MENU
+          </button>
+      </div>
+  </div>
+  
+    
+
+
+ </div>
+<div id="new" style="background-color: pink;">
+THIRD PAGE
+</div>
+</div>
+
+<div class="form-area">
+  <div class="container">
+      <div class="row single-form g-0">
+          <div class="col-sm-12 col-lg-6">
+              <div class="left">
+                  <h2><span>Get in touch</span> <br>With us</h2>
+              </div>
+          </div>
+          <div class="col-sm-12 col-lg-6">
+              <div class="right">
+                 <i class="fa fa-caret-left"></i>
+                  <form>
+                    <div class="mb-3">
+                      <label for="exampleInputName1" class="form-label">Your Name</label>
+                      <div class="input-container">
+                        <input type="text" class="form-control" id="exampleInputName1" aria-describedby="emailHelp">
+                        <span id="nameDot" class="red-dot"></span>
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Email address</label>
+                      <div class="input-container">
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <span id="emailDot" class="red-dot"></span>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleFormControlSelect1">Gender</label>
+                      <div class="input-container">
+                        <select class="form-control" id="exampleFormControlSelect1">
+                          <option value="0" disabled selected hidden></option>
+                          <option value="1">Female</option>
+                          <option value="2">Male</option>
+                          <option value="3">Other</option>
+                        </select>
+                        <span id="genderDot" class="red-dot"></span>
+                      </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                      <label for="exampleInputMessag1" class="form-label">Message</label>
+                      <div class="input-container">
+                        <textarea type="text" class="form-control" id="exampleInputMessag1"></textarea>
+                        <span id="messageDot" class="red-dot"></span>
+                      </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="submitbutton">Submit</button>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<div id="new" style="background-color: pink;">
+  THIRD PAGE
+</div>
+
+<!-- Bootstrap JS Bundle (including Popper) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+  var myCarousel = document.getElementById('carouselExampleFade');
+  var carousel = new bootstrap.Carousel(myCarousel, {
+    interval: 5000, 
+    pause: false 
+  });
+});
+document.addEventListener('DOMContentLoaded', function () {
+  var myCarousel = document.getElementById('carouselExampleFade');
+  var carousel = new bootstrap.Carousel(myCarousel, {
+    interval: 5000, 
+    pause: false
+  });
+
+  setOpacity();
+
+  myCarousel.addEventListener('slid.bs.carousel', function () {
+    setOpacity(); 
+  });
+
+
+  function setOpacity() {
+    var items = myCarousel.querySelectorAll('.carousel-item');
+    items.forEach(function (item) {
+      if (item.classList.contains('active')) {
+        item.style.opacity = '1'; 
+      } else {
+        item.style.opacity = '0'; 
+      }
+    });
+  }
+});
+var elementsToShow = document.querySelectorAll('.reveal');
+
+    function reveal() {
+        elementsToShow.forEach(function (element) {
+            var windowHeight = window.innerHeight;
+            var revealTop = element.getBoundingClientRect().top;
+            var revealPoint = 150;
+
+            if (revealTop < windowHeight - revealPoint) {
+                element.classList.add('active');
+            } else {
+                element.classList.remove('active');
+            }
+        });
+    }
+    reveal();
+    window.addEventListener('scroll', reveal);
+
+    let nameField = document.getElementById("exampleInputName1");
+    let emailField = document.getElementById("exampleInputEmail1");
+    let genderField = document.getElementById("exampleFormControlSelect1");
+    let messageField = document.getElementById("exampleInputMessag1");
+    let selectedIndex = genderField.options[genderField.selectedIndex].value;
+
+    window.onload = doBindings;
+
+    function doBindings() {
+      let submitBtn = document.getElementById("submitbutton");
+      submitBtn.onclick = function (event) {
+        event.preventDefault();
+       selectedIndex = genderField.selectedIndex;
+
+
+        checkAndDisplayRedDot(nameField, 'nameDot');
+        checkAndDisplayRedDot(emailField, 'emailDot');
+        checkAndDisplayRedDot(genderField, 'genderDot');
+        checkAndDisplayRedDot(messageField, 'messageDot');
+
+        if (!nameField.value || !emailField.value ||  selectedIndex <= 0 || !messageField.value) {
+          console.log("Form is invalid");
+        } else {
+          console.log("Form is valid");
+        }
+      }
+    }
+
+    function checkAndDisplayRedDot(field, dotId) {
+      let redDot = document.getElementById(dotId);
+      if(field == genderField){
+        if(selectedIndex <= 0 ){
+          redDot.textContent = '•';
+      } else{
+        redDot.textContent = '';
+      }
+    }else{
+        if (!field.value) {
+        redDot.textContent = '•';
+      } else {
+        redDot.textContent = '';
+      }
+      }
+     
+    }
+
+</script>
+
+</body>
+</html>
