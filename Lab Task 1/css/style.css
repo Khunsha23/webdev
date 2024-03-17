@@ -1,17 +1,6 @@
 @import url(clash-display.css);
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
 
-/* VARIABLES */
-:root {
-    --c-dark: #212529;
-    --c-brand: #4e57d4;
-    --c-brand-light: #6970dd;
-    --c-brand-rgb: 78, 87, 212;
-    --c-body: #727272;
-    --font-base: "ClashDisplay", sans-serif;
-    --box-shadow: 0px 15px 25px rgba(0,0,0,0.08);
-    --transition: all 0.5s ease;
-}
 *{
     margin: 0;
     padding: 0;
@@ -34,7 +23,7 @@
     
   }
 
-  /* Custom color definitions */
+
   .custom-navbar .navbar-nav .nav-link {
     color: #ffffff; 
     font-family: var(--font-base);
@@ -47,7 +36,7 @@
   .custom-navbar {
     background-color: transparent; 
     position: relative;
-    z-index: 1000; /* Ensure the navbar appears above other content */
+    z-index: 1000; 
     border-style: solid;
     border-color: transparent;
   height: auto;
@@ -140,7 +129,7 @@
       width: 100%;
     }
     .offcanvas.show {
-        background-color: rgba(103, 103, 103, 0.564); /* Adjust the transparency by changing the alpha value */
+        background-color: rgba(103, 103, 103, 0.564); 
         transition: none;
       }
       #FRESHLY{
@@ -156,20 +145,18 @@
      }
    
     .column-img {
-      max-height: 200px; /* Adjust the maximum height as needed */
+      max-height: 200px; 
     }
     .typewriter {
-      font-size: 1.5em; /* Adjust font size for smaller screens */
-      overflow-wrap: break-word; /* Wrap long words onto the next line */
+      font-size: 1.5em;
+      overflow-wrap: break-word;
     }
   
 }
 
-    
-  /* CSS */
 .column-img {
-  max-width: 70%; /* Adjust the maximum width as needed */
-  height: auto; /* Maintain aspect ratio */
+  max-width: 70%; 
+  height: auto; 
 }
 
     .offcanvas {
@@ -200,10 +187,10 @@
         }
         
         #carouselExampleFade .carousel-inner .carousel-item img {
-          max-width: 100%; /* Set maximum width to 100% */
-          max-height: 27em; /* Set maximum height to 400 pixels */
-          width: auto; /* Allow the width to adjust based on the aspect ratio */
-          height: auto; /* Allow the height to adjust based on the aspect ratio */
+          max-width: 100%; 
+          max-height: 27em; 
+          width: auto; 
+          height: auto;
           object-fit: contain;
         }
 
