@@ -1,0 +1,48 @@
+body{
+    background-color: rgb(231, 195, 201);
+}
+.card,#createTitle, #createBody {
+    height: 100%; 
+    background-color: rgb(199, 199, 232);
+    border-color: transparent;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+
+}
+
+.card-body {
+    height: 100%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+.card-title,.mb-4{
+color: rgb(48, 37, 37);
+font-weight: bolder;
+font-family:Georgia, 'Times New Roman', Times, serif;
+}
+.mb-4{
+    text-align: center;
+}
+.card-text{
+font-weight: 500;
+}
+#createBtn, #clearBtn{
+    background-color: rgb(199, 199, 232);
+    color: rgb(92, 92, 92);
+    border-color: transparent;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+
+}
+#editBtn,#delBtn{
+    background-color:rgb(231, 195, 201);
+    color: rgb(49, 49, 49);
+    border-color: transparent;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+
+}
+#label_title,#label_body{
+    color: rgb(49, 49, 49);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bolder;
+}
