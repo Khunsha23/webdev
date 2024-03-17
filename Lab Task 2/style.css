@@ -1,7 +1,7 @@
 body{
     background-color: rgb(231, 195, 201);
 }
-.card,#createTitle, #createBody {
+.card,#createTitle, #createBody,#createPrice {
     height: 100%; 
     background-color: rgb(199, 199, 232);
     border-color: transparent;
@@ -20,6 +20,12 @@ body{
 color: rgb(48, 37, 37);
 font-weight: bolder;
 font-family:Georgia, 'Times New Roman', Times, serif;
+}
+.card-price{
+    color: rgb(48, 37, 37);
+font-weight: bold;
+font-family:Georgia, 'Times New Roman', Times, serif;
+font-size: 18px;
 }
 .mb-4{
     text-align: center;
@@ -41,7 +47,7 @@ font-weight: 500;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
 
 }
-#label_title,#label_body{
+#label_title,#label_body,#label_price{
     color: rgb(49, 49, 49);
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: bolder;

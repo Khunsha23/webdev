@@ -1,22 +1,23 @@
 // Function to fetch and display stories
-function displayPosts() {
+function displayMenu() {
     $.ajax({
-        url: "https://65f6d0eafec2708927c9caf3.mockapi.io/posts",
+        url: "https://65f729a6b4f842e808853816.mockapi.io/menu",
         method: "GET",
         dataType: "json",
         success: function(data) {
             var storiesGrid = $("#storiesGrid");
             storiesGrid.empty();
-            $.each(data, function(index, post) {
+            $.each(data, function(index, menu) {
                 var column = $('<div class="col-md-4 mb-3"></div>');
                 column.append(
                     `<div class="card">
                         <div class="card-body">
-                            <h3 class="card-title">${post.title}</h3>
-                            <p class="card-text">${post.body}</p>
+                            <h3 class="card-title">${menu.name}</h3>
+                            <h2 class="card-price">${menu.price}</h2>
+                            <p class="card-text">${menu.description}</p>
                             <div>
-                                <button id="editBtn" class="btn btn-info btn-sm mr-2 btn-edit" data-id="${post.id}">Edit</button>
-                                <button id="delBtn" class="btn btn-danger btn-sm mr-2 btn-del" data-id="${post.id}">Delete</button>
+                                <button id="editBtn" class="btn btn-info btn-sm mr-2 btn-edit" data-id="${menu.id}">Edit</button>
+                                <button id="delBtn" class="btn btn-danger btn-sm mr-2 btn-del" data-id="${menu.id}">Delete</button>
                             </div>
                         </div>
                     </div>`
@@ -25,21 +26,21 @@ function displayPosts() {
             });
         },
         error: function(error) {
-            console.error("Error fetching stories:", error);
+            console.error("Error fetching:", error);
         },
     });
 }
 //deleting
 function deletePost(){
-let postId = $(this).attr("data-id");
+let menuId = $(this).attr("data-id");
 $.ajax({
-    url: "https://65f6d0eafec2708927c9caf3.mockapi.io/posts/" +postId,
+    url: "https://65f729a6b4f842e808853816.mockapi.io/menu/" +menuId,
     method: "DELETE",
     success: function(){
-        displayPosts();
+        displayMenu();
     },
     error: function(){
-        console.error("Error deleting post: "+error);
+        console.error("Error deleting item: "+error);
     }
 
 });
@@ -48,24 +49,26 @@ $.ajax({
 function HandleFormSubmission(event){
     event.preventDefault();
 
-    let postId = $("#createBtn").attr("data-id");
-    console.log(postId);
-    var title = $("#createTitle").val();
-    console.log(title);
-    var body = $("#createBody").val();
-    console.log(body);
+    let menuId = $("#createBtn").attr("data-id");
+    console.log(menuId);
+    var name = $("#createTitle").val();
+    console.log(name);
+    var price = $("#createPrice").val();
+    console.log(price);
+    var description = $("#createBody").val();
+    console.log(description);
 
-    if(postId){
+    if(menuId){
         $.ajax({
-            url: "https://65f6d0eafec2708927c9caf3.mockapi.io/posts/" +postId,
+            url: "https://65f729a6b4f842e808853816.mockapi.io/menu/" +menuId,
             method: "PUT",
             dataType: "json",
-            data: {title, body},
+            data: {name, price, description},
             success: function(){
-                displayPosts();
+                displayMenu();
             },
             error: function(){
-                console.error("Error updating post: "+error);
+                console.error("Error updating: "+error);
             }
         
         });
@@ -74,15 +77,19 @@ function HandleFormSubmission(event){
     else{
         $.ajax({
 
-            url: "https://65f6d0eafec2708927c9caf3.mockapi.io/posts",
+            url: "https://65f729a6b4f842e808853816.mockapi.io/menu",
             method: "POST",
             dataType: "json",
-            data: {title, body},
+            data: {name,price, description},
             success: function(){
-                displayPosts();
+                displayMenu();
+                $("#createBtn").removeAttr("data-id");
+                $("#createTitle").val("");
+                $("#createBody").val("");
+                $("#createPrice").val("");
             },
             error: function(){
-                console.error("Error creating post: "+error);
+                console.error("Error creating: "+error);
             }
         });
 
@@ -93,26 +100,27 @@ function HandleFormSubmission(event){
 //edit button handling
 function editBtnClicked(event){
     event.preventDefault();
-    let postId = $(this).attr("data-id");
+    let menuId = $(this).attr("data-id");
     $.ajax({
-        url: "https://65f6d0eafec2708927c9caf3.mockapi.io/posts/" +postId,
+        url: "https://65f729a6b4f842e808853816.mockapi.io/menu/" +menuId,
         method: "GET",
         success: function(data){
             console.log(data);
             $("#clearBtn").show();
-            $("#createTitle").val(data.title);
-            $("#createBody").val(data.body);
+            $("#createTitle").val(data.name);
+            $("#createBody").val(data.description);
+            $("#createPrice").val(data.price);
             $("#createBtn").html("Update");
             $("#createBtn").attr("data-id", data.id);
      },
         error: function(){
-            console.error("Error editing post: "+error);
+            console.error("Error editing: "+error);
         }
     });
 }
 $(document).ready(function () {
     // Initial display of stories
-    displayPosts();
+    displayMenu();
     $(document).on("click",".btn-del",deletePost);
     $(document).on("click",".btn-edit",editBtnClicked);
     $("#createForm").submit(HandleFormSubmission);
@@ -123,6 +131,8 @@ $(document).ready(function () {
         $("#createBtn").html("Create");
         $("#createTitle").val("");
         $("#createBody").val("");
+        $("#createPrice").val("");
+
     });
 });
   
