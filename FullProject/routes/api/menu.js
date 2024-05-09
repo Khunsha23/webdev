@@ -19,7 +19,7 @@ router.get("/menu/:id/delete", async (req, res) => {
 
 router.get("/menu/:id/edit", async (req, res) => {
   let menu = await Menu.findById(req.params.id);
-  return res.render("edit", {pageContent: "edit",menu});
+  return res.render("edit", {pageContent: "edit",menu, layout: false});
 });
 
 router.post("/menu/:id/edit", async (req, res) => {

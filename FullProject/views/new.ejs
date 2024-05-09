@@ -6,52 +6,54 @@
     <title>Admin Panel</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        /* Form container */
         .container-form {
             max-width: 400px;
             margin: 5em auto;
-            background-color: #b9bcdc; /* light pink */
+            background-color: #b9bcdc;
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* subtle shadow */
-        }
+            border-radius: 0px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);}
 
-        /* Text input fields */
+    
         input[type="text"] {
             width: 100%;
             padding: 10px;
             margin-bottom: 20px;
-            border: 1px solid #ced4da;
-            border-radius: 5px;
-        }
+            border: 1px solid #ffffff;
+            border-radius: 0px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);}
 
-        /* Submit button */
+        
+
         input[type="submit"] {
             width: 100%;
             padding: 12px 20px;
-            border: none;
-            background-color: #ffb6c1; /* light pink */
-            color: #fff;
-            border-radius: 5px;
+            border: none;  
+            border-radius: 0px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
         }
 
-        /* Submit button hover effect */
-        input[type="submit"]:hover {
-            background-color: #ff69b4; /* dark pink */
-        }
+      
 
         .menu-heading {
             margin-bottom: 30px;
             font-size: 24px;
             color: white;
             text-align: center;
-        }
+            background-color:  #ffb6c1; 
+            width: 60%;
+            display: block;
+            margin: 0 auto;
+            padding: 12px 20px;
+            border-style: none;
+            border-color: transparent;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);}
 
-        /* Custom Navbar Styling */
+           
+        
+
         .navbar-custom {
-            background-color: #ffb6c1; /* light pink */
+            background-color: #ffb6c1; 
             color: white;
             border-bottom: 1px solid #ddd;
         }
@@ -62,6 +64,27 @@
             text-align: center;
             width: 100%;
             margin: auto;
+        }
+
+        .custom-btn {
+            width: 60%;
+            padding: 12px 20px;
+            border: none;
+            border-color: transparent;
+            background-color: #ffb6c1 !important; 
+            color: white !important; 
+            border-radius: 0px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: block;
+            margin: 0 auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);}
+
+        
+
+        .custom-btn:hover {
+            background-color: #f0f0f0;
+            transition: background-color 0.3s ease-in-out;
         }
     </style>
 </head>
@@ -85,7 +108,7 @@
 
     <div class="container">
         <div class="container-form">
-            <h2 class="menu-heading">Add Menu Items</h2>
+            <h2 class="menu-heading">ADD MENU</h2>
             <form action="/menu/new" method="post">
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
@@ -99,7 +122,7 @@
                     <label for="description" class="form-label">Description</label>
                     <input type="text" class="form-control" id="description" name="description" required>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary custom-btn">Submit</button>
             </form>
         </div>
     </div>
