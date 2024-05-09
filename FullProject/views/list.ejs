@@ -1,0 +1,35 @@
+
+    <link rel="stylesheet" href="/menu.css">
+
+    <h1 class="pagetitle"><%= pageTitle %></h1>
+    <br>
+    <div style="display: flex; justify-content: space-between;">
+      <button class="btn-custom" style="margin-left:25px;" onclick="location.href='/new.html'">New Menu</button>
+      <p style="text-align: right; padding-right:30px">Page: <%= page %> of <%= total %></p>
+    </div>
+
+    
+    <div class="grid-container">
+        <% menu.forEach(item => { %>
+        <div class="list-menu">
+            <h5 class="list-menu-title"><%= item.title %></h5>
+            <p class="list-menu-price"><%= item.price %></p>
+            <p class="list-menu-description"><%= item.description %></p>
+            <div class="action-btns">
+                <button class="btn-custom action-btn" style="margin-right:1em" onclick="location.href='/menu/<%= item._id %>/edit'">Edit</button>
+                <button class="btn-custom action-btn" onclick="location.href='/menu/<%= item._id %>/delete'">Delete</button>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+
+
+      <ul class="pagination">
+          <% for (let index = 1; index <= totalPages; index++) { %>
+          <li>
+              <a href="/menu/<%= index %>"><%= index %></a>
+          </li>
+          <% } %>
+      </ul>
+    
+  
