@@ -4,7 +4,7 @@ const router = express.Router();
 const Menu = require("../../models/Menu");
 
 router.get("/menu/new", async (req, res) => {
-  res.render("menu/new");
+  res.render("new");
 });
 router.post("/menu/new", async (req, res) => {
   let record = new Menu(req.body);
