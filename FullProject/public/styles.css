@@ -186,7 +186,7 @@
         #carouselExampleSlidesOnly {
           max-width: 100%;
         }
-        
+
         #carouselExampleFade .carousel-inner .carousel-item img {
           max-width: 100%;
           max-height: 27em;
@@ -575,7 +575,7 @@ padding-top: 2em;
   }
 
   .card {
-    height: 26vh !important;
+    height: 22vh !important;
     padding: 1.2rem;
     box-shadow: none;
     width: 80%;
@@ -621,4 +621,7 @@ padding-top: 2em;
     width: 5em; 
   }
 }
+
+
+
 

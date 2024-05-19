@@ -1,35 +1,61 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu List</title>
     <link rel="stylesheet" href="/menu.css">
-
-    <h1 class="pagetitle"><%= pageTitle %></h1>
+</head>
+<body>
+    <bodycontainer>
+        <h1 class="pagetitle"><%= pageTitle %></h1>
     <br>
-    <div style="display: flex; justify-content: space-between;">
-      <button class="btn-custom" style="margin-left:25px;" onclick="location.href='/new.html'">New Menu</button>
-      <p style="text-align: right; padding-right:30px">Page: <%= page %> of <%= total %></p>
-    </div>
 
+    <% if (user && user.role === 'admin') { %>
+      <div style="display: flex; justify-content: space-between;">
+          <button class="btn-custom" style="margin-left:25px;" onclick="location.href='/new.html'">New Menu</button>
+      </div>
+      <% } %>
+    <p style="text-align: right; padding-right:30px">Page: <%= page %> of <%= totalPages %></p>
+
+    <div class="main">
+        <ul class="list-cards">
+          <% menu.forEach(item => { %>
+            <li class="list-cards_item">
+              <div class="list-card">
+                <div class="list-card_image">
+                  <% if (item.image) { %>
+                    <img src="data:image/jpeg;base64,<%= item.image.toString('base64') %>" alt="<%= item.title %>">
+                  <% } %>
+                </div>
+                <div class="list-card_content">
+                  <h2 class="list-card_title"><%= item.title %> &#x2022; $<%= item.price %></h2>
+                  <div class="list-card_text">
+                    <p><%= item.description %></p>
+                  </div>
+                  <% if (user && user.role === 'admin') { %>
+                    <div class="action-btns">
+                      <button class="btn-custom action-btn" style="margin-right:1em" onclick="location.href='/menu/<%= item._id %>/edit'">Edit</button>
+                      <button class="btn-custom action-btn" onclick="location.href='/menu/<%= item._id %>/delete'">Delete</button>
+                    </div>
+                    <% } %>
+                </div>
+              </div>
+            </li>
+          <% }) %>
+        </ul>
+      </div>
+      
     
-    <div class="grid-container">
-        <% menu.forEach(item => { %>
-        <div class="list-menu">
-            <h5 class="list-menu-title"><%= item.title %></h5>
-            <p class="list-menu-price"><%= item.price %></p>
-            <p class="list-menu-description"><%= item.description %></p>
-            <div class="action-btns">
-                <button class="btn-custom action-btn" style="margin-right:1em" onclick="location.href='/menu/<%= item._id %>/edit'">Edit</button>
-                <button class="btn-custom action-btn" onclick="location.href='/menu/<%= item._id %>/delete'">Delete</button>
-            </div>
-        </div>
-        <% }) %>
-    </div>
 
-
-      <ul class="pagination">
-          <% for (let index = 1; index <= totalPages; index++) { %>
-          <li>
-              <a href="/menu/<%= index %>"><%= index %></a>
-          </li>
-          <% } %>
-      </ul>
+    <ul class="pagination">
+        <% for (let index = 1; index <= totalPages; index++) { %>
+        <li>
+            <a href="/menu/<%= index %>"><%= index %></a>
+        </li>
+        <% } %>
+    </ul>
+    </bodycontainer>
     
-  
+</body>
+</html>

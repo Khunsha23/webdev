@@ -7,7 +7,7 @@ const session = require("express-session")
 const isAuthenticated = require("./middlewares/isAuthenticated");
 let server = express();
 server.use(express.json());
-server.use(express.urlencoded());
+server.use(express.urlencoded({extended: true}));
 server.use(cookieParser());
 server.use(session({ secret: "Its  a secret" }));
 server.set("view engine", "ejs");
@@ -15,6 +15,8 @@ server.use(express.static("public"));
 var expressLayouts = require("express-ejs-layouts");
 server.use(expressLayouts);
 server.use(require("./middlewares/siteMiddleware"))
+const isAdmin = require("./middlewares/isAdmin"); // Import the isAdmin middleware
+
 
 
 server.get("/", (req, res) => {
@@ -25,7 +27,7 @@ let menuApiRouter = require("./routes/api/menu");
 server.use("/", menuApiRouter);
 
 
-server.get("/new.html", (req, res) => {
+server.get("/new.html",isAdmin, (req, res) => {
   res.render("new",{layout: false});
 });
 server.get("/homepage.html", (req, res) => {
@@ -45,9 +47,7 @@ server.get("/menu/:page?", async (req, res) => {
     const totalMenuItems = await Menu.countDocuments();
     const totalPages = Math.ceil(totalMenuItems / pageSize);
 
-    const menu = await Menu.find()
-      .skip(skip)
-      .limit(pageSize);
+    const menu = await Menu.find().skip(skip).limit(pageSize);
 
     res.render("list", {
       pageTitle: "MENU",
@@ -56,6 +56,7 @@ server.get("/menu/:page?", async (req, res) => {
       page: parseInt(page),
       pageSize,
       totalPages,
+      user: req.session.user // Pass user session data to the view
     });
   } catch (error) {
     console.error("Error fetching menu items:", error);
