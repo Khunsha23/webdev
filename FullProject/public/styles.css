@@ -207,6 +207,9 @@
   position: sticky;
   top:0;
 }
+.about-section:hover{
+  transform: scale(1);
+}
 
 .about-section .inner-container{
   width: 50%;
@@ -217,8 +220,13 @@
   padding-bottom: 1em;
   padding-left: 5em;
   padding-right: 5em;
+  border-style: solid;
+    border-color: transparent;
+    border-radius: 1em;
+    box-shadow: 0px 0px 10px lightgrey;
   
 }
+
 
 .about-section .inner-container h1{
   margin-bottom: 1.5em;
@@ -226,6 +234,9 @@
   font-weight: 900;
   color:#8c91c9;
   
+}
+.about-section .inner-container h1:hover{
+  transform: scale(1.1);
 }
 
 .about-section .inner-container .text{
@@ -247,6 +258,9 @@
   font-size: medium;
   color:#8c91c9;
   
+}
+.about-section .inner-container .skills:hover{
+  transform: scale(1.1);
 }
 
 @media screen and (max-width:1200px){
@@ -281,29 +295,31 @@
               15px 11px 0 0 #8c91c9,
               11px 15px 0 0 #8c91c9;
 }
+.stacked:hover{
+  transform: scale(1.1);
+
+}
 .footer h4 {
   color: rgb(240, 13, 153);
   font-family: 'Mulish';
   font-weight: 700;
 }
 
-.testimonials
-{
+.testimonials {
   width: 100%;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   position: sticky;
-  top:0;
+  top: 0;
   padding: 40px 0;
   color: #000000;
   text-align: center;
-  background-color:pink !important;
-  
+  background-color: pink !important;
 
-     
 }
+
 #testimonial-h1{
   color: white;
   font-family: "Gloria Hallelujah";
@@ -337,11 +353,33 @@
 
 
 
+.testimonial-low{
+  background:#acb0e0;
+  padding: 30px;
+  border-style: solid;
+    border-color: transparent;
+    border-radius: 1em;
+    box-shadow: 0 0 10px #d6a3a3;
+    transform: scale(0.8); 
+
+  
+}
 .testimonial{
   background:#acb0e0;
   padding: 30px;
+  border-style: solid;
+    border-color: transparent;
+    border-radius: 1em;
+    box-shadow: 0 0 10px #d6a3a3;
+    transform: scale(1);
 
   
+}
+.testimonial:hover{
+  transform: scale(1.1);
+}
+.testimonial-low:hover{
+  transform: scale(0.9);
 }
 
 .testimonials .name{
@@ -356,7 +394,7 @@
 
 
 @media screen and (max-width:960px) {
-  .testimonial{
+  .testimonial,.testimonial-low{
     height: 30vh;
   }
 
@@ -384,7 +422,7 @@
 }
 
 @media screen and (max-width:600px) {
-  .testimonial{
+  .testimonial,.testimonial-low{
     height: 20vh;
     padding: 0;
     padding-top: 0.5em;
@@ -413,7 +451,6 @@
 }
 }
 
-/* menu css*/
 .gr-1{
   background-image: url(../images/cake_menu.jpg);
 

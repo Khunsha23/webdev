@@ -15,21 +15,39 @@ server.use(express.static("public"));
 var expressLayouts = require("express-ejs-layouts");
 server.use(expressLayouts);
 server.use(require("./middlewares/siteMiddleware"))
-const isAdmin = require("./middlewares/isAdmin"); // Import the isAdmin middleware
+const isAdmin = require("./middlewares/isAdmin"); 
+const config = require("config");
+const jwtPrivateKey = config.get('jwtPrivateKey');
+const jwt = require('jsonwebtoken');
 
-
-
-server.get("/", (req, res) => {
-  res.render("homepage");
+server.get("/", async (req, res) => {
+  try {
+    const token = req.cookies.token;
+      if (token) {
+      const decoded = jwt.verify(token, config.get('jwtPrivateKey'));
+      req.session.user = decoded;
+    } else {
+      req.session.user = null;
+    }
+    res.render("homepage");
+  } catch (error) {
+    console.error("Error rendering homepage:", error);
+    res.status(500).send("Server Error");
+  }
 });
+
+
 server.use("/",require("./routes/api/auth"))
 let menuApiRouter = require("./routes/api/menu");
+const authenticate = require("./middlewares/authenticate");
 server.use("/", menuApiRouter);
 
 
 server.get("/new.html",isAdmin, (req, res) => {
-  res.render("new",{layout: false});
+  res.render("new",{layout: false},);
 });
+
+
 server.get("/homepage.html", (req, res) => {
   res.render( "homepage" );
 });
@@ -56,7 +74,7 @@ server.get("/menu/:page?", async (req, res) => {
       page: parseInt(page),
       pageSize,
       totalPages,
-      user: req.session.user // Pass user session data to the view
+      user: req.session.user 
     });
   } catch (error) {
     console.error("Error fetching menu items:", error);

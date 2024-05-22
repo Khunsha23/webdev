@@ -10,11 +10,14 @@ const router = express.Router();
 const isAdmin = require("../../middlewares/isAdmin"); 
 
 const Menu = require("../../models/Menu");
+const authenticate = require("../../middlewares/authenticate")
+
 
 router.get("/menu/new", isAdmin,async (req, res) => {
+  console.log("/menu/new")
   res.render("new");
 });
-router.post("/menu/new",isAdmin, upload.single('image'), async (req, res) => {
+router.post("/menu/new",isAdmin, upload.single('image') ,async (req, res) => {
   try {
     let record = new Menu({
       title: req.body.title,
@@ -30,15 +33,19 @@ router.post("/menu/new",isAdmin, upload.single('image'), async (req, res) => {
 });
 router.get("/menu/:id/delete",isAdmin, async (req, res) => {
   await Menu.findByIdAndDelete(req.params.id);
+  console.log("/menu/delete")
+
   return res.redirect("/menu");
 });
 
-router.get("/menu/:id/edit",isAdmin, async (req, res) => {
+router.get("/menu/:id/edit",isAdmin ,async (req, res) => {
   let menu = await Menu.findById(req.params.id);
+  console.log("/menu/edit")
+
   return res.render("edit", {menu, layout: false});
 });
 
-router.post("/menu/:id/edit",isAdmin, upload.single('image'), async (req, res) => {
+router.post("/menu/:id/edit",isAdmin, upload.single('image'),async (req, res) => {
   try {
     let menu = await Menu.findById(req.params.id);
     if (menu) {
