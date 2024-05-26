@@ -659,6 +659,33 @@ padding-top: 2em;
   }
 }
 
+#why-choose-us {
+  background-color: #f9f9f9;
+  padding-top: 5em;
+  padding-bottom: 1em;
+}
 
+.features-container {
+  display: flex;
+  justify-content: space-between; 
+}
 
+.feature {
+  flex: 1; 
+  padding: 0 20px; 
+  text-align: center;
+}
+
+.feature i {
+  font-size: 36px; 
+}
+
+.feature h2 {
+  font-size: 18px; 
+  margin-bottom: 5px; 
+}
+
+.feature p {
+  font-size: 14px; 
+}
 

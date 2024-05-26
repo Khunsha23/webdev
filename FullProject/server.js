@@ -56,6 +56,12 @@ server.get("/contact-us.html", isAuthenticated, (req, res) => {
   res.render("contact-us" );
 });
 
+
+server.post("/contact-us.html", isAuthenticated, (req, res) => {
+  res.flash("success", "Form was submitted successfully!");
+  res.redirect("/contact-us.html");
+});
+
 server.get("/menu/:page?", async (req, res) => {
   try {
     const page = req.params.page || 1; 
