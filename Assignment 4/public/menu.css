@@ -1,0 +1,152 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.main {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.list-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.list-cards_item {
+  display: flex;
+  padding: 1rem;
+}
+
+.list-card_image {
+  height: calc(13 * 1.2rem);
+  padding: 1.2rem 1.2rem 0;
+  position: relative;
+  display: flex; 
+  justify-content: center; 
+}
+
+.list-card_image:before,
+.list-card_image:after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  left: 60%;
+  top: 0;
+  height: 45px;
+  background: #e6e6e6b8;
+  transform: rotate(45deg);
+}
+
+.list-card_image:after {
+  transform: rotate(-45deg);
+  top: auto;
+  bottom: -22px;
+  left: 40%;
+}
+
+.list-card_image img {
+  
+  max-width: 85%; 
+  height: auto;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+.list-cards_item {
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.25));
+}
+
+.list-card {
+  background-color: white;
+  border-radius: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding-left: 30px;
+  background: repeating-linear-gradient(#0000 0 calc(1.2rem - 1px), #66afe1 0 1.2rem) right bottom / 100% 100%, linear-gradient(red 0 0) 30px 0 / 2px 100% #fff;
+  background-repeat: no-repeat;
+  line-height: 1.2rem;
+  -webkit-mask: radial-gradient(circle .8rem at 2px 50%, #0000 98%, #000) 0 0 / 100% 2.4rem;
+}
+
+.list-card_content {
+  padding: 1.2rem;
+}
+
+h2.list-card_title,
+p {
+  margin: 1.2rem 0;
+}
+
+h2.list-card_title {
+  font-size: 1.3em;
+}
+
+.bodycontainer {
+  font-family: monospace;
+  background: #eee;
+}
+
+html {
+  font-size: 15px;
+}
+
+.btn-custom {
+  background-color: #ffb6c1;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 5px; 
+}
+
+.btn-custom:last-child {
+  margin-right: 0; 
+}
+
+.btn-custom:hover {
+  background-color: #ff69b4;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+
+.pagination li {
+  display: inline;
+  margin-left: 10px;
+}
+
+.pagination li a {
+  color: black !important;
+  text-decoration: none !important;
+}
+
+.pagination li:first-child {
+  margin-left: 0;
+}
+
+.pagetitle {
+  text-align: center;
+  font-family:monospace;
+  font-weight: bolder;
+  color: #f13995;
+  margin-top: 1em;
+}
+@media screen and (max-width: 600px) {
+  .list-cards {
+    grid-template-columns: repeat(1, 1fr);
+ 
+  }
+  .pagination{
+    padding:1.5em;
+  }
+}
